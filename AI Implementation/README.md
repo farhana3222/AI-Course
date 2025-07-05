@@ -1,122 +1,108 @@
-# 📘 Artificial Intelligence Algorithms
+# Algorithm Implementation Overview
 
-This section contains a detailed summary of the algorithms studied in this course, including how they work, real-life applications, and complexities.
+This section gives a quick idea about how these algorithms work in practice.
 
-## 🔍 Uninformed Search Algorithms
-
-### 1. Breadth-First Search (BFS)
-**How it works:** Explores all nodes level by level using a queue (FIFO).  
-**Applications:** Shortest path in unweighted graphs, social network analysis.  
-**Complexity:**  
-- Time: O(b^d)  
-- Space: O(b^d)  
+- **Uninformed searches** explore the problem space without extra knowledge. They try nodes blindly.
+- **Informed searches** use heuristics (rules of thumb) to guess which nodes are best to explore.
+- **Local searches** improve a single solution step-by-step, good for optimization.
+- **Game playing algorithms** decide the best move assuming an opponent also plays optimally.
 
 ---
 
-### 2. Depth-First Search (DFS)
-**How it works:** Explores as deep as possible before backtracking; uses a stack or recursion.  
-**Applications:** Puzzle solving, pathfinding in mazes.  
-**Complexity:**  
-- Time: O(b^m)  
-- Space: O(b\*m)  
+## Uninformed Search Algorithms
+
+### Breadth-First Search (BFS)  
+- **How it works:** Explores nodes level by level, starting from the root.  
+- **Use cases:** Finding shortest path in maps, social networks.  
+- **Complexity:** Time and Space = O(b^d) (b = branching factor, d = depth).
 
 ---
 
-### 3. Iterative Deepening Search (IDS)
-**How it works:** Combines DFS and BFS by increasing depth limit step-by-step.  
-**Applications:** Game trees, memory-efficient pathfinding.  
-**Complexity:**  
-- Time: O(b^d)  
-- Space: O(b\*d)  
+### Depth-First Search (DFS)  
+- **How it works:** Goes deep down one path until it can't go further, then backtracks.  
+- **Use cases:** Puzzle solving, checking connectivity.  
+- **Complexity:** Time = O(b^m), Space = O(b*m) (m = max depth).
 
 ---
 
-### 4. Bidirectional Search
-**How it works:** Runs two simultaneous BFS searches—from the start and from the goal—and meets in the middle.  
-**Applications:** GPS navigation, robot motion planning.  
-**Complexity:**  
-- Time: O(b^(d/2))  
-- Space: O(b^(d/2))  
+### Iterative Deepening Search (IDS)  
+- **How it works:** Runs DFS repeatedly with increasing depth limits.  
+- **Use cases:** When depth is unknown, combines DFS and BFS benefits.  
+- **Complexity:** Time = O(b^d), Space = O(b*d).
 
 ---
 
-### 5. Depth-Limited Search (DLS)
-**How it works:** DFS with a fixed maximum depth.  
-**Applications:** Large search trees with known depth limits.  
-**Complexity:**  
-- Time: O(b^l)  
-- Space: O(b\*l)  
+### Bidirectional Search  
+- **How it works:** Searches forward from start and backward from goal simultaneously.  
+- **Use cases:** Fast shortest path finding.  
+- **Complexity:** Time and Space = O(b^(d/2)).
 
 ---
 
-## 🧠 Informed Search Algorithms
-
-### 6. Heuristic Search
-**How it works:** Uses a heuristic function to estimate cost from current node to goal.  
-**Applications:** Pathfinding in games, robotics, planning.  
-**Complexity:** Depends on heuristic quality.
+### Depth-Limited Search (DLS)  
+- **How it works:** Like DFS but stops at a set depth limit.  
+- **Use cases:** Avoid infinite loops, control search depth.  
+- **Complexity:** Time = O(b^l), Space = O(b*l) (l = depth limit).
 
 ---
 
-### 7. Best-First Search
-**How it works:** Expands the node with the lowest heuristic value.  
-**Applications:** Pathfinding, AI planning.  
-**Complexity:**  
-- Time: O(b^m)  
-- Space: O(b^m)  
+## Informed Search Algorithms
+
+### Heuristic Search  
+- **How it works:** Uses a heuristic function to estimate how close to goal a node is.  
+- **Use cases:** Route finding, AI problem solving.  
+- **Complexity:** Depends on heuristic quality.
 
 ---
 
-### 8. A\* (A-Star) Search
-**How it works:** Uses f(n) = g(n) + h(n) (actual cost + heuristic) to find the optimal path.  
-**Applications:** Google Maps, game AI, robotics.  
-**Complexity:**  
-- Time: O(b^d)  
-- Space: O(b^d)  
+### Best First Search  
+- **How it works:** Always expands the most promising node based on heuristic.  
+- **Use cases:** Puzzle solving, pathfinding.  
+- **Complexity:** Time & Space up to O(b^m).
 
 ---
 
-### 9. AO\* Algorithm
-**How it works:** Works on AND-OR graphs to find optimal solutions by expanding paths that are most promising.  
-**Applications:** Problem solving in decision trees with subgoals, diagnostics.  
-**Complexity:** Varies with graph and heuristic.
+### A* Search  
+- **How it works:** Combines cost so far and estimated cost to goal to pick nodes.  
+- **Use cases:** GPS navigation, games.  
+- **Complexity:** Time and Space O(b^d), but efficient with good heuristics.
 
 ---
 
-## ⚙️ Optimization Algorithms
-
-### 10. Hill Climbing
-**How it works:** Starts with a random solution and makes small changes to improve it.  
-**Applications:** Feature selection, scheduling, configuration problems.  
-**Complexity:**  
-- Time: O(n) to O(n^2)  
-- Space: O(1)  
+### AO* Algorithm  
+- **How it works:** Solves AND-OR graphs (problems with subgoals and alternatives).  
+- **Use cases:** Task planning, expert systems.  
+- **Complexity:** Varies by problem size.
 
 ---
 
-### 11. Beam Search
-**How it works:** Keeps only top k best nodes at each level instead of all; limits memory.  
-**Applications:** Speech recognition, machine translation.  
-**Complexity:**  
-- Time: O(k \* b \* d)  
-- Space: O(k \* d)  
+## Local Search Algorithms
+
+### Hill Climbing  
+- **How it works:** Starts with a solution, moves to a better neighbor until no improvement.  
+- **Use cases:** Optimization problems.  
+- **Complexity:** Fast but can get stuck at local best solutions.
 
 ---
 
-## 🎮 Game Playing Algorithms
-
-### 12. Minimax Algorithm
-**How it works:** Assumes both players play optimally and chooses moves to maximize the minimum gain.  
-**Applications:** Chess, tic-tac-toe, checkers, other 2-player games.  
-**Complexity:**  
-- Time: O(b^m)  
-- Space: O(m)  
+### Beam Search  
+- **How it works:** Like BFS but only keeps best few nodes at each level (beam width).  
+- **Use cases:** Speech recognition, machine translation.  
+- **Complexity:** Time & Space depend on beam width and depth.
 
 ---
 
-### 13. Alpha-Beta Pruning
-**How it works:** Improves Minimax by cutting off branches that won’t affect the result.  
-**Applications:** Chess engines, game AI.  
-**Complexity:**  
-- Time: O(b^(m/2))  
-- Space: O(m)
+## Game Playing Algorithms
+
+### Minimax Algorithm  
+- **How it works:** Explores moves assuming both players try to win or minimize loss.  
+- **Use cases:** Chess, Tic-Tac-Toe.  
+- **Complexity:** Time = O(b^m), Space = O(m).
+
+---
+
+### Alpha-Beta Pruning  
+- **How it works:** Cuts off branches that won't affect the final decision, speeding Minimax.  
+- **Use cases:** Same as Minimax but faster.  
+- **Complexity:** Best case Time = O(b^(m/2)).
+
