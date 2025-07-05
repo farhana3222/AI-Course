@@ -1,8 +1,8 @@
 
-🌟 Artificial Intelligence Algorithms Overview
+##🌟 Artificial Intelligence Algorithms Overview
 This document provides a summarized overview of various AI algorithms covered in this course. It includes a brief explanation of how each algorithm works, where they are applied in real life, and their computational complexity.
 
-🔍 Uninformed Search Techniques
+#🔍 Uninformed Search Techniques
 1. Breadth-First Search (BFS)
 How it works:
 Explores nodes level by level using a First-In-First-Out (FIFO) queue.
@@ -61,7 +61,7 @@ Time: O(b^l)
 Space: O(b*l)
 l = depth limit.
 
-🧠 Informed (Heuristic-Based) Search
+#🧠 Informed (Heuristic-Based) Search
 6. Heuristic Search
 How it works:
 Guides the search using a heuristic function that estimates the cost to the goal.
@@ -101,7 +101,7 @@ Used in expert systems, problem solvers, and decision diagnostics.
 Complexity:
 Varies based on structure and branching.
 
-⚙️ Optimization and Local Search
+#⚙️ Optimization and Local Search
 10. Hill Climbing
 How it works:
 Starts with a solution and continuously moves to a better neighbor until no improvement is possible.
@@ -124,7 +124,7 @@ Time: O(k * b * d)
 
 Space: O(k * d)
 
-🎮 Game-Playing Strategies
+#🎮 Game-Playing Strategies
 12. Minimax Algorithm
 How it works:
 A decision rule for two-player games where one maximizes score while the other minimizes it.
